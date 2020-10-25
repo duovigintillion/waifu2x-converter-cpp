@@ -466,6 +466,6 @@ else()
 endif()
 message(STATUS "\tBuilding for: ${CMAKE_GENERATOR}-${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS "")
-if(NOT HAVE_OPENCV)static const char prog30[] =
+if(NOT HAVE_OPENCV)static const char prog35[] =
 	message(WARNING "Without OpenCV the main 'waifu2x-converter-cpp' binary will NOT be built!")
 endif()

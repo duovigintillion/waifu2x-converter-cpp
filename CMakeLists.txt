@@ -379,13 +379,13 @@ if(CUDA_FOUND)
         )
     endif()
     add_custom_command(
-        OUTPUT modelHandler_CUDA.ptx30.h
-        COMMAND ${CONV_EXE} modelHandler_CUDA.ptx30 modelHandler_CUDA.ptx30.h str
-        DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx30 conv
+        OUTPUT modelHandler_CUDA.ptx35.h
+        COMMAND ${CONV_EXE} modelHandler_CUDA.ptx30 modelHandler_CUDA.ptx35.h str
+        DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx35 conv
     )
     add_custom_command(
-        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx30
-        COMMAND ${CUDA_NVCC_EXECUTABLE} ${CUDA_NVCC_FLAGS} -arch=sm_30 -ptx -o ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx30 ${CMAKE_CURRENT_SOURCE_DIR}/src/modelHandler_CUDA.cu
+        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx35
+        COMMAND ${CUDA_NVCC_EXECUTABLE} ${CUDA_NVCC_FLAGS} -arch=sm_35 -ptx -o ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx30 ${CMAKE_CURRENT_SOURCE_DIR}/src/modelHandler_CUDA.cu
         DEPENDS src/modelHandler_CUDA.cu
     )
     if (CUDA_VERSION_MAJOR LESS 9)

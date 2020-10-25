@@ -379,19 +379,19 @@ if(CUDA_FOUND)
         )
     endif()
     add_custom_command(
-        OUTPUT modelHandler_CUDA.ptx35.h
-        COMMAND ${CONV_EXE} modelHandler_CUDA.ptx30 modelHandler_CUDA.ptx35.h str
-        DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx35 conv
+        OUTPUT modelHandler_CUDA.ptx60.h
+        COMMAND ${CONV_EXE} modelHandler_CUDA.ptx30 modelHandler_CUDA.ptx60.h str
+        DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx60 conv
     )
     add_custom_command(
-        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx35
-        COMMAND ${CUDA_NVCC_EXECUTABLE} ${CUDA_NVCC_FLAGS} -arch=sm_35 -ptx -o ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx30 ${CMAKE_CURRENT_SOURCE_DIR}/src/modelHandler_CUDA.cu
+        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx60
+        COMMAND ${CUDA_NVCC_EXECUTABLE} ${CUDA_NVCC_FLAGS} -arch=sm_60 -ptx -o ${CMAKE_CURRENT_BINARY_DIR}/modelHandler_CUDA.ptx30 ${CMAKE_CURRENT_SOURCE_DIR}/src/modelHandler_CUDA.cu
         DEPENDS src/modelHandler_CUDA.cu
     )
     if (CUDA_VERSION_MAJOR LESS 9)
         set(GPU_CODE ${GPU_CODE} modelHandler_CUDA.ptx30.h modelHandler_CUDA.ptx20.h)
     else()
-        set(GPU_CODE ${GPU_CODE} modelHandler_CUDA.ptx35.h)
+        set(GPU_CODE ${GPU_CODE} modelHandler_CUDA.ptx60.h)
     endif()
 endif()
 

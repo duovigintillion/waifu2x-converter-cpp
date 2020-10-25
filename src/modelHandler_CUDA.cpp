@@ -8,7 +8,6 @@
 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 * copies of the Software, and to permit persons to whom the Software is
 * furnished to do so, subject to the following conditions:
-* 
 * The above copyright notice and this permission notice shall be included in all
 * copies or substantial portions of the Software.
 * 
@@ -48,8 +47,8 @@ static void *handle;
             #include "modelHandler_CUDA.ptx20.h"
             ;
     #endif // CUDART_VERSION < 9000
-    static const char prog30[] =
-        #include "modelHandler_CUDA.ptx30.h"
+    static const char prog35[] =
+        #include "modelHandler_CUDA.ptx35.h"
 	;
 #endif // HAVE_CUDA
 
@@ -172,7 +171,7 @@ namespace w2xc
 			return false;
 		}
 
-		const char *prog = prog30;
+		const char *prog = prog35;
 		// cuda 9.0 doesn't support Compute 20
 
 #if CUDART_VERSION < 9000
